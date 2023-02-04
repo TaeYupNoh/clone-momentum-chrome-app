@@ -5,7 +5,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 function deleteTodo(event) {
   const li = event.target.parentElement;
@@ -41,11 +41,8 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
-function sayHello() {
-  console.log("Hello");
-}
-
 if (savedToDos !== null) {
   const pasedToDos = JSON.parse(savedToDos);
-  pasedToDos.forEach(sayHello);
+  toDos = pasedToDos;
+  pasedToDos.forEach(paintToDo);
 }
