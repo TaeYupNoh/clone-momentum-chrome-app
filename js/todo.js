@@ -10,6 +10,7 @@ let toDos = [];
 function deleteTodo(event) {
   const li = event.target.parentElement;
   li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
 }
 
 function saveToDos() {
@@ -51,3 +52,5 @@ if (savedToDos !== null) {
   toDos = pasedToDos;
   pasedToDos.forEach(paintToDo);
 }
+
+filter;
